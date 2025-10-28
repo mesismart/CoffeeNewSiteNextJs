@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/models/User": ["./models/UserModel"]
+    }
+  }
+}

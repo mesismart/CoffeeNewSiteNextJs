@@ -1,0 +1,86 @@
+.login_container {
+  color-scheme: light;
+  background-color: white;
+  width: 53%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 0.2);
+  padding: 2.4rem 1.6rem;
+  color: rgb(112, 112, 112);
+}
+.input_style {
+  background-color: white;
+  border: 1px solid rgb(153, 153, 153);
+  width: 100%;
+  height: 2.8rem;
+  text-align: right;
+  font-size: 13px;
+  padding: 12px 16px;
+  color: rgb(66, 64, 64);
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  font-weight: 400;
+}
+.input_style::placeholder {
+  color: rgb(112, 112, 112);
+  font-weight: 400;
+}
+.remember_me {
+  padding: 0.3rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.remember_me input {
+  margin-left: 0.3rem;
+  accent-color: rgb(218, 218, 218);
+  border: 5px solid rgb(153, 153, 153);
+  width: 1rem;
+  height: 1rem;
+}
+.remember_me input:checked {
+  border: 5px solid rgb(153, 153, 153);
+}
+.remember_me label {
+  font-size: 13px;
+}
+.login_btn {
+  width: 100%;
+  background-color: rgb(52, 24, 14);
+  color: white;
+  height: 2.9rem;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.forget_password {
+  margin-top: 0.8rem;
+  font-size: 0.77rem;
+  color: rgb(109, 109, 109);
+  font-weight: 400;
+}
+.register_btn {
+  width: 100%;
+  height: 2.9rem;
+  margin-top: 1rem;
+  background: rgb(242, 242, 242);
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.is_registerd_container {
+  width: 100%;
+  text-align: right;
+}
+.is_registerd {
+  margin-top: 2.4rem;
+  font-size: 0.8rem;
+  color: rgb(112, 112, 112);
+  text-align: right;
+  font-weight: 500;
+}

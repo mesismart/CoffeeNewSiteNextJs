@@ -1,0 +1,23 @@
+.container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.title {
+  color: #000;
+}
+
+.title h3 {
+  font-size: 2.5rem;
+  color: #114639;
+}
+.title p {
+  color: #777777;
+}
+.article_container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10rem;
+}

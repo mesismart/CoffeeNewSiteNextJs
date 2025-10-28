@@ -1,0 +1,147 @@
+.footer {
+  background-color: rgb(17, 17, 17);
+  min-height: 27rem;
+  padding: 2rem 4rem;
+}
+.top_part {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  min-width: 18rem;
+  align-items: end;
+  color: #ffffff99;
+  text-align: right;
+  padding: 1rem 1rem;
+}
+
+.title p {
+  font-size: small;
+  font-weight: 100;
+}
+.address_container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 1rem;
+}
+.address_container span {
+  color: #ffffff99;
+  font-size: smaller;
+  font-weight: 100;
+}
+.address_icon {
+  font-size: 2.5rem;
+  padding: 5px;
+}
+.mobile_container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 1rem;
+}
+.mobile_icon {
+  font-size: 1.5rem;
+  padding: 5px;
+}
+.mobile_container a {
+  font-size: smaller;
+}
+.email_container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.email_icon {
+  font-size: 1.5rem;
+  padding: 5px;
+}
+.email_container a {
+  font-size: smaller;
+}
+
+.last_article {
+  display: flex;
+  min-width: 20rem;
+  /* background-color: red; */
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.last_article hr {
+  border: #ffffff99;
+}
+.quick_access {
+  display: flex;
+  min-width: 14rem;
+  /* background-color: green; */
+  flex-direction: column;
+  align-items: end;
+  padding: 1rem 1rem;
+}
+.quick_access p {
+  font-size: 16px;
+  font-weight: bold;
+}
+.quick_access a {
+  font-size: 14px;
+  font-weight: 100;
+  color: #ffffff99;
+  padding: 0.5rem 0;
+}
+.footer_menu {
+  display: flex;
+  min-width: 13rem;
+  /* background-color: green; */
+  flex-direction: column;
+  align-items: end;
+  padding: 1rem 1rem;
+}
+.footer_menu p {
+  font-size: 16px;
+  font-weight: bold;
+}
+.footer_menu a {
+  font-size: 14px;
+  font-weight: 100;
+  color: #ffffff99;
+  padding: 0.5rem 0;
+}
+.logos {
+  min-width: 10rem;
+}
+.logos_top {
+  display: flex;
+  gap: 0.3rem;
+}
+.logos_top_container {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+.logos_top_container img {
+  width: 11rem;
+  padding: 1rem;
+}
+.logos_bottom {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+.logos_bottom_container {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+}
+.logos_bottom_container img {
+  width: 6rem;
+  padding: 0.3rem;
+}

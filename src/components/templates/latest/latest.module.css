@@ -1,0 +1,33 @@
+.main {
+  color: black;
+  padding: 2rem 5rem;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.title_right > h3 {
+  font-weight: 500;
+  font-size: x-large;
+}
+.title_right > p {
+  font-size: small;
+  text-transform: capitalize;
+}
+.title_left {
+  display: flex;
+  align-items: center;
+}
+.title_right {
+  text-align: center;
+}
+.product {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  padding: 20px 0;
+  justify-content: space-around;
+}

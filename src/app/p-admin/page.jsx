@@ -1,5 +1,7 @@
 import PanelUserLayout from "@/components/layouts/PanelUserLayout";
+import OrdersBox from "@/components/templates/p-admin/OrdersBox";
 import PanelBox from "@/components/templates/p-admin/PanelBox";
+import TicketsBox from "@/components/templates/p-admin/TicketsBox";
 import React from "react";
 
 function Index() {
@@ -10,6 +12,10 @@ function Index() {
         <PanelBox boxNumber="0" boxTitle="مجموع کامنت ها" />
         <PanelBox boxNumber="2" boxTitle="مجموع سفارشات" />
         <PanelBox boxNumber="10" boxTitle="مجموع علاقه مندی ها" />
+      </div>
+      <div className="flex justify-between px-8 w-full mt-6">
+        <TicketsBox leftTitle="همه تیکت ها" rightTitle="تیکت های اخیر" />
+        <TicketsBox leftTitle="همه تیکت ها" rightTitle="تیکت های اخیر" />
       </div>
     </PanelUserLayout>
   );

@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import swal from "sweetalert";
 import PanelUserLayout from "@/components/layouts/PanelUserLayout";
 import WishlistItem from "@/components/templates/p-admin/WishlistItem";
+import { getWishlist, deleteWishlistItem } from "@/services/wishlist.service";
 
 function WishlistPage() {
   const [products, setProducts] = useState([]);
@@ -11,13 +13,7 @@ function WishlistPage() {
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const response = await fetch("http://localhost:4000/wishlist");
-        console.log("Wishlist API response:", response);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch wishlist: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log("Wishlist data:", data);
+        const data = await getWishlist();
         setProducts(data);
       } catch (error) {
         console.error("Failed to fetch wishlist:", error);
@@ -36,31 +32,21 @@ function WishlistPage() {
         ? (productOrId._id ?? productOrId.id)
         : productOrId;
 
+    const willDelete = await swal({
+      title: "حذف از علاقه مندی ها",
+      text: "آیا مطمئن هستید که می‌خواهید این محصول را از علاقه‌مندی‌ها حذف کنید؟",
+      icon: "warning",
+      dangerMode: true,
+    });
+
+    if (willDelete) {
+      swal("حذف موفق", "محصول از علاقه‌مندی‌ها حذف شد!", "success");
+    }
+
     console.log("Removing product with ID:", productId);
 
     try {
-      let response = await fetch(
-        `http://localhost:4000/wishlist/${productId}`,
-        {
-          method: "DELETE",
-        },
-      );
-
-      if (response.status === 404) {
-        response = await fetch("http://localhost:4000/wishlist", {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ id: productId }),
-        });
-      }
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to remove product from wishlist: ${response.status}`,
-        );
-      }
+      await deleteWishlistItem(productId);
 
       setProducts(
         products.filter(
@@ -74,15 +60,15 @@ function WishlistPage() {
 
   return (
     <PanelUserLayout>
-      <div className="flex items-center gap-4 mt-4">
-        <hr className="flex-1 border-t-2 border-red-900" />
-        <h1 className="whitespace-nowrap m-0 text-2xl font-bold">
+      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <hr className="w-full sm:flex-1 border-t-2 border-red-900" />
+        <h1 className="whitespace-nowrap m-0 text-2xl font-bold text-center sm:text-left">
           علاقه مندی ها
         </h1>
-        <hr className="flex-[12] border-t-2 border-red-900" />
+        <hr className="w-full sm:flex-[12] border-t-2 border-red-900" />
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {loading ? (
           <p className="text-gray-600">در حال بارگذاری...</p>
         ) : products.length === 0 ? (

@@ -14,14 +14,28 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
+      "id": "2",
+      "date": "2024-06-02",
+      "product": "محصول دوم",
+      "content": "این یک کامنت دوم است.",
+      "score": 5,
+      "status": "تایید شده"
     },
     {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "id": "3",
+      "date": "2024-06-03",
+      "product": "محصول سوم",
+      "content": "این یک کامنت سوم است.",
+      "score": 3,
+      "status": "در انتظار بررسی"
+    },
+    {
+      "id": "4",
+      "date": "2024-06-04",
+      "product": "محصول چهارم",
+      "content": "این یک کامنت چهارم است.",
+      "score": 2,
+      "status": "رد شده"
     }
   ],
   "profile": {

@@ -1,26 +1,50 @@
+"use client";
 import PanelUserLayout from "@/components/layouts/PanelUserLayout";
-import React from "react";
-
-const comments = [
-  {
-    id: 1,
-    date: "2024-06-01",
-    product: "محصول نمونه",
-    content: "این یک کامنت نمونه است.",
-    score: 4,
-    status: "تایید شده",
-  },
-  {
-    id: 2,
-    date: "2024-06-02",
-    product: "محصول دوم",
-    content: "این یک کامنت دوم است.",
-    score: 5,
-    status: "تایید شده",
-  },
-];
+import { useEffect, useState } from "react";
+import { getComments } from "@/services/comment.service";
+import swal from "sweetalert";
+import { deleteComment } from "@/services/comment.service";
 
 export default function Comments() {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await getComments();
+        setComments(response);
+      } catch (error) {
+        console.error("Failed to fetch comments:", error);
+        setComments([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchComments();
+  }, []);
+
+  const handleDeleteComment = async (commentId) => {
+    // Implement delete comment logic here
+    const willDelete = await swal({
+      title: "حذف کامنت",
+      text: "آیا مطمئن هستید که می‌خواهید این کامنت را حذف کنید؟",
+      icon: "warning",
+      dangerMode: true,
+    });
+
+    if (willDelete) {
+      swal("حذف موفق", "کامنت حذف شد!", "success");
+    }
+
+    try {
+      await deleteComment(commentId);
+      setComments(comments.filter((comment) => comment.id !== commentId));
+    } catch (error) {
+      console.error("Failed to delete comment:", error);
+    }
+  };
+
   return (
     <PanelUserLayout>
       <div className="flex items-center gap-4 mt-4">
@@ -81,6 +105,10 @@ export default function Comments() {
                     ویرایش
                   </button>
                   <button
+                    onClick={() => {
+                      // Handle delete action
+                      handleDeleteComment(comment.id);
+                    }}
                     type="button"
                     className="rounded-md bg-red-600 px-3 py-1 text-white transition hover:bg-red-700"
                   >

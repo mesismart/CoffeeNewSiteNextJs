@@ -33,7 +33,7 @@ const menuItems = [
   {
     title: "علاقه مندی",
     icon: <HeartPlus size={20} />,
-    href: "/p-admin/favorite",
+    href: "/p-admin/wishlist",
   },
   {
     title: "جزئیات اکانت",

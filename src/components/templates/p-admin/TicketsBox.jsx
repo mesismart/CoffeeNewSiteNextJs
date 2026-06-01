@@ -1,40 +1,33 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import TicketBox from "./TicketBox";
-
-const tickets = [
-  {
-    id: 1,
-    imgURl:
-      "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
-    title: "قهوه عربیکا 80 درصد",
-    ticketDate: "1404/05/02",
-    status: "تکمیل",
-    price: "5000000",
-  },
-  {
-    id: 2,
-    imgURl:
-      "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
-    title: "قهوه عربیکا 60 درصد",
-    ticketDate: "1404/05/03",
-    status: "در حال پردازش",
-    price: "3200000",
-  },
-  {
-    id: 3,
-    imgURl:
-      "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
-    title: "قهوه روبوستا",
-    ticketDate: "1404/05/04",
-    status: "لغو شده",
-    price: "210000000",
-  },
-];
+import { getTickets } from "@/services/ticket.service";
 
 export default function TicketsBox({ leftTitle = "", rightTitle = "" }) {
+  const [tickets, setTickets] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const loadTicket = async () => {
+      try {
+        const data = await getTickets();
+        setTickets(data);
+        console.log("Tickets:", data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadTicket();
+  }, []);
+
+  if (error) return <p>خطا در دریافت اطلاعات</p>;
   return (
-    <div className="flex-row w-1/2 bg-red-100 px-3 mx-2">
+    <div className="flex-row w-1/2 bg-red-100 px-3 rounded-md mx-2">
       <div className="flex justify-between  p-2">
         <h3 className="text-sm">{rightTitle}</h3>
         <div className="flex items-center">
@@ -43,10 +36,18 @@ export default function TicketsBox({ leftTitle = "", rightTitle = "" }) {
         </div>
       </div>
       <div className="border-b-2 border-red-500"></div>
+
       <div className="py-3 ">
-        {tickets.map((ticket) => (
-          <TicketBox key={ticket.id} {...ticket} />
-        ))}
+        {loading && (
+          <p className="text-center text-sm">درحال دریافت اطلاعات...</p>
+        )}
+        {!loading && error && (
+          <p className="text-center text-sm text-red-600">{error}</p>
+        )}
+
+        {!loading &&
+          !error &&
+          tickets.map((ticket) => <TicketBox key={ticket.id} {...ticket} />)}
       </div>
     </div>
   );

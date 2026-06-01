@@ -2,7 +2,7 @@ import PanelUserLayout from "@/components/layouts/PanelUserLayout";
 import OrdersBox from "@/components/templates/p-admin/OrdersBox";
 import PanelBox from "@/components/templates/p-admin/PanelBox";
 import TicketsBox from "@/components/templates/p-admin/TicketsBox";
-import React from "react";
+import { getTickets } from "@/services/ticket.service";
 
 function Index() {
   return (
@@ -15,7 +15,7 @@ function Index() {
       </div>
       <div className="flex justify-between px-8 w-full mt-6">
         <TicketsBox leftTitle="همه تیکت ها" rightTitle="تیکت های اخیر" />
-        <TicketsBox leftTitle="همه تیکت ها" rightTitle="تیکت های اخیر" />
+        <OrdersBox leftTitle="همه سفارش ها" rightTitle="سفارش های اخیر" />
       </div>
     </PanelUserLayout>
   );

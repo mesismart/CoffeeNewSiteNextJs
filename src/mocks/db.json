@@ -1,0 +1,87 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "tickets": [
+    {
+      "id": "1",
+      "title": "حجم بسته بندی",
+      "ticketDate": "1404/05/02",
+      "status": "پاسخ داده نشده",
+      "vahed": "واحد پشتیبانی"
+    },
+    {
+      "id": "2",
+      "title": "2حجم بسته بندی",
+      "ticketDate": "1404/05/02",
+      "status": "پاسخ داده نشده",
+      "vahed": "فروش"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "imgURl": "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
+      "title": "قهوه عربیکا 80 درصد",
+      "ticketDate": "1404/05/02",
+      "status": "تکمیل",
+      "price": "5000000"
+    },
+    {
+      "id": "2",
+      "imgURl": "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
+      "title": "قهوه عربیکا 60 درصد",
+      "ticketDate": "1404/05/03",
+      "status": "در حال پردازش",
+      "price": "3200000"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "meisam",
+      "token": "abc123"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": "1",
+      "imgURl": "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
+      "title": "قهوه عربیکا 80 درصد",
+      "price": "5000000",
+      "score": 4
+    },
+    {
+      "id": "2",
+      "imgURl": "https://set-coffee.com/wp-content/uploads/2022/12/setj-600x600.png",
+      "title": "قهوه عربیکا 60 درصد",
+      "price": "3200000",
+      "score": 5
+    }
+  ]
+}

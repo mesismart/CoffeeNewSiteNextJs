@@ -2,7 +2,7 @@
 import InputField from "@/components/common/InputField";
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { ShowSwl } from "@/utils/Helper";
+import { ShowSwl } from "@/app/lib/utils/Helper";
 import { IoMdStar } from "react-icons/io";
 import StarRatingInput from "./StarRatingInput";
 

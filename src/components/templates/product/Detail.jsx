@@ -11,7 +11,7 @@ import RateStar from "@/components/modules/product/RateStar";
 import AddToWishlist from "./AddToWishlist";
 
 function Detail(product) {
-  console.log("product", product);
+  console.log("productDetail:", product);
   return (
     <main className="mr-20 ml-20">
       <div dir="rtl" className="text-black text-right py-4 ">

@@ -1,6 +1,6 @@
-import connectToDB from "../../../../configs/db";
-import CommentModel from "./../../../../models/Comment";
-import ProductModel from "./../../../../models/Product";
+import connectToDB from "../../lib/configs/db";
+import CommentModel from "../../lib/models/Comment";
+import ProductModel from "../../lib/models/Product";
 
 export async function POST(req) {
   try {
@@ -21,22 +21,34 @@ export async function POST(req) {
 
     const updatedProduct = await ProductModel.findOneAndUpdate(
       { _id: productId },
-      { $push: { comments: Comment._id } }
+      { $push: { comments: Comment._id } },
     );
 
     return Response.json(
       { message: "Comment created successfully", Comment },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.log("error: ", error);
     return Response.json(
       { message: "Error creating Comment", error },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 export async function GET(req) {
-  // Get all products
+  try {
+    connectToDB();
+
+    const comments = await commentsModel.find().populate("productId", "name");
+
+    return Response.json({ comments }, { status: 200 });
+  } catch (error) {
+    console.log("error: ", error);
+    return Response.json(
+      { message: "Error fetching comments", error },
+      { status: 500 },
+    );
+  }
 }

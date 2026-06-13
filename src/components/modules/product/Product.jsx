@@ -10,11 +10,11 @@ import RateStar from "./RateStar";
 import Link from "next/link";
 
 function Product({ product }) {
-  // console.log("ProductInProduct: ", product);
+  console.log("ProductInProduct: ", product);
 
-  const addToWishlist = () => {
-    console.log("addToWishlist");
-  };
+  // const addToWishlist = () => {
+  //   console.log("addToWishlist");
+  // };
   const addToBasket = () => {};
 
   const handleQuickView = () => {};

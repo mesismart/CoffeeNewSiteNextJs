@@ -4,9 +4,9 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 
 import styles from "./latest.module.css";
 import Product from "@/components/modules/product/Product";
-import connectToDB from "../../../../configs/db";
-import productModel from "../../../../models/Product";
-import userModel from "../../../../models/User";
+import connectToDB from "../../../app/lib/configs/db";
+import productModel from "../../../app/lib/models/Product";
+import userModel from "../../../app/lib/models/User";
 
 async function Latest() {
   connectToDB();
@@ -37,8 +37,8 @@ async function Latest() {
                 price: Number(item.price),
                 score: Number(item.score),
                 image: String(item.image),
-                shortDescription:String(item.shortDescription),
-                weight:String(item.weight)
+                shortDescription: String(item.shortDescription),
+                weight: String(item.weight),
               }}
             />
           ))}

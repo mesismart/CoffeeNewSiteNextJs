@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import OrderBox from "./OrderBox";
-import { getOrders } from "@/services/order.service";
+import { getOrders } from "@/app/lib/services/order.service";
 
 export default function OrdersBox({ leftTitle = "", rightTitle = "" }) {
   const [orders, setOrder] = useState([]);

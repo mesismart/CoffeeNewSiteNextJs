@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import styles from "@/styles/login-register.module.css";
 import Login from "@/components/templates/login-register/Login";
 import Register from "@/components/templates/login-register/Register";
-import { authType } from "@/utils/Constants";
+import { authType } from "@/app/lib/utils/Constants";
 
 function Login_register() {
   const [currentAuth, setCurrentAuth] = useState(authType.REGISTER);

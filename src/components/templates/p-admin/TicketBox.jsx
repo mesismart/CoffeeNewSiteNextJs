@@ -1,4 +1,4 @@
-import { formatPrice } from "@/utils/Helper";
+import { formatPrice } from "@/app/lib/utils/Helper";
 import React from "react";
 
 function TicketBox({ title = "", ticketDate = "", status = "", vahed = "" }) {

@@ -2,10 +2,10 @@ import {
   generateAccessToken,
   generateRefreshToken,
   verifyPassword,
-} from "@/utils/auth";
-import connectToDB from "../../../../../configs/db";
+} from "@/app/lib/utils/auth";
+import connectToDB from "../../../lib/configs/db";
 
-import UserModel from "../../../../../models/User";
+import UserModel from "../../../lib/models/User";
 
 export async function POST(req) {
   await connectToDB();
@@ -29,7 +29,7 @@ export async function POST(req) {
       $set: {
         refreshToken,
       },
-    }
+    },
   );
 
   if (!isUserExist)
@@ -39,7 +39,7 @@ export async function POST(req) {
   if (!isValid)
     return Response.json(
       { message: "P=>" + password + "hashed=>" + isUserExist.password },
-      { status: 401 }
+      { status: 401 },
     );
   else
     return Response.json(
@@ -47,6 +47,6 @@ export async function POST(req) {
       {
         status: 200,
         headers: { "Set-Cookie": `token=${accessToken};path=/;httpOnly=true` },
-      }
+      },
     );
 }

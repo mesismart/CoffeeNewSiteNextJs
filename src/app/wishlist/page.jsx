@@ -4,9 +4,9 @@ import Product from "@/components/modules/product/Product";
 import Titlebar from "@/components/modules/titlebar/Titlebar";
 import WishlistItem from "@/components/templates/wishlist/WishlistItem";
 import React from "react";
-import connectToDB from "../../../configs/db";
+import connectToDB from "../lib/configs/db";
 
-import wishlishModel from "../../../models/Wishlist";
+import wishlishModel from "../lib/models/Wishlist";
 
 async function Wishlist() {
   connectToDB();

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-require("../models/User");
-require("../models/Product");
+require("./User");
+require("./Product");
 
 const schema = new mongoose.Schema(
   {
@@ -18,7 +18,7 @@ const schema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const model = mongoose.models.Wishlist || mongoose.model("Wishlist", schema);

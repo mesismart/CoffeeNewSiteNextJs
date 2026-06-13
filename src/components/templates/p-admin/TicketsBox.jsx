@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import TicketBox from "./TicketBox";
-import { getTickets } from "@/services/ticket.service";
+import { getTickets } from "@/app/lib/services/ticket.service";
 
 export default function TicketsBox({ leftTitle = "", rightTitle = "" }) {
   const [tickets, setTickets] = useState([]);

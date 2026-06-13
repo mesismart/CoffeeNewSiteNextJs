@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import swal from "sweetalert";
 import PanelUserLayout from "@/components/layouts/PanelUserLayout";
 import WishlistItem from "@/components/templates/p-admin/WishlistItem";
-import { getWishlist, deleteWishlistItem } from "@/services/wishlist.service";
+import {
+  getWishlist,
+  deleteWishlistItem,
+} from "@/app/lib/services/wishlist.service";
 
 function WishlistPage() {
   const [products, setProducts] = useState([]);

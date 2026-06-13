@@ -2,7 +2,7 @@ import PanelUserLayout from "@/components/layouts/PanelUserLayout";
 import OrdersBox from "@/components/templates/p-admin/OrdersBox";
 import PanelBox from "@/components/templates/p-admin/PanelBox";
 import TicketsBox from "@/components/templates/p-admin/TicketsBox";
-import { getTickets } from "@/services/ticket.service";
+import { getTickets } from "@/app/lib/services/ticket.service";
 
 function Index() {
   return (

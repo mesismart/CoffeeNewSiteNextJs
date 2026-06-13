@@ -5,7 +5,8 @@ import styles from "./login.module.css";
 import Link from "next/link";
 import Sms from "./Sms";
 import ForgotPass from "./ForgotPass";
-import { ShowSwl } from "@/utils/Helper";
+import { ShowSwl } from "@/app/lib/utils/Helper";
+import { signIn } from "@/app/lib/services/login.service";
 
 function Login({ GoToRegisterForm }) {
   const [isLoginWithOTP, setIsLoginWithOTP] = useState(false);
@@ -27,13 +28,7 @@ function Login({ GoToRegisterForm }) {
 
     const user = { phone, password };
 
-    const res = await fetch("/api/auth/signIn", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(user),
-    });
+    const res = await signIn(user);
 
     console.log("res: ", res);
     if (res.status === 200) {
@@ -41,14 +36,15 @@ function Login({ GoToRegisterForm }) {
       ShowSwl("ورود موفقیت آمیز بود", "success", "باشه").then(() => {
         window.location.href = "/";
       });
-    }
-    if (res.status == 401) {
+    } else if (res.status == 401) {
       console.log(res.message);
       ShowSwl("رمز عبور اشتباه است", "error", "باشه");
-    }
-    if (res.status == 404) {
+    } else if (res.status == 404) {
       console.log(res.message);
       ShowSwl("کاربر یافت نشد", "error", "باشه");
+    } else {
+      console.log(res.message);
+      ShowSwl("خطای نامشخص", "error", "باشه");
     }
   };
 

@@ -4,8 +4,8 @@ import Articles from "@/components/templates/index/articles/Articles";
 import Banner from "@/components/templates/index/banner/Banner";
 import Latest from "@/components/templates/latest/Latest";
 import Promote from "@/components/templates/promote/Promote";
-import { verifyAccessToken } from "@/utils/auth";
-import UserModel from "./../../models/User";
+import { verifyAccessToken } from "@/app/lib/utils/auth";
+import UserModel from "./lib/models/User";
 import { cookies } from "next/headers";
 export default async function Home() {
   const token = cookies().get("token");

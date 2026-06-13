@@ -2,7 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
-      "@/models/User": ["./models/UserModel"]
+      "@/models/User": ["src/app/lib/models/UserModel"]
     }
   }
 }

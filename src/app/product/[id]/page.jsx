@@ -5,19 +5,19 @@ import Detail from "@/components/templates/product/Detail";
 import Gallery from "@/components/templates/product/Gallery";
 import RelatedProducts from "@/components/templates/product/RelatedProducts";
 import React from "react";
-import ProductModel from "./../../../../models/Product";
-import connectToDB from "../../../../configs/db";
+import ProductModel from "../../lib/models/Product";
+import connectToDB from "../../lib/configs/db";
 import Tabs from "@/components/templates/product/Tabs";
 import { comment } from "postcss";
+import { getProductById } from "../../lib/services/product.service";
 
 async function Product({ params }) {
-  const productId = params.id;
+  const { id: productId } = await params;
+  console.log("param: ", params);
   console.log("productId: ", productId);
 
-  connectToDB();
-  const product = await ProductModel.findOne({
-    _id: productId,
-  }).populate("comments");
+  await connectToDB();
+  const product = await getProductById(productId);
   console.log("Product:", product);
 
   const RelatedProduct = await ProductModel.find({

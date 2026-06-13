@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { ShowSwl } from "@/utils/Helper";
+import { ShowSwl } from "@/app/lib/utils/Helper";
 
 function AddToWishlist(productId) {
   const [user, setUser] = useState({});
 
   const authUser = async () => {
-    const response = await fetch("/api/auth/me");
+    const response = await authUser();
     console.log("authUser");
     if (response.status == 200) {
       const data = await response.json();
@@ -55,7 +55,7 @@ function AddToWishlist(productId) {
       ShowSwl(
         "این محصول قبلا به علاقه مندی های شما اضافه شده است",
         "warning",
-        "باشه"
+        "باشه",
       ).then(() => {
         window.location.href = "/wishlist";
       });

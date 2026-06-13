@@ -1,7 +1,7 @@
-import connectToDB from "../../../../../configs/db";
-import UserModel from "../../../../../models/User";
-import { generateAccessToken, hashPassword } from "@/utils/auth";
-import { roleType } from "@/utils/Constants";
+import connectToDB from "../../../lib/configs/db";
+import UserModel from "../../../lib/models/User";
+import { generateAccessToken, hashPassword } from "@/app/lib/utils/auth";
+import { roleType } from "@/app/lib/utils/Constants";
 
 export async function POST(req) {
   try {
@@ -42,7 +42,7 @@ export async function POST(req) {
       {
         status: 201,
         headers: { "Set-Cookie": `token=${accessToken};path=/;httpOnly=true` },
-      }
+      },
     );
   } catch (error) {
     console.error("Error in GET:", error);

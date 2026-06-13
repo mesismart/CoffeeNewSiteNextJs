@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 
-import userModel from "../../../../../models/User";
-import { verifyAccessToken } from "@/utils/auth";
-import connectToDB from "../../../../../configs/db";
+import userModel from "../../../lib/models/User";
+import { verifyAccessToken } from "@/app/lib/utils/auth";
+import connectToDB from "../../../lib/configs/db";
 
 export async function GET(req) {
   console.log("Fetching user details...");
@@ -18,7 +18,7 @@ export async function GET(req) {
     if (tokenPayload) {
       user = await userModel.findOne(
         { phone: tokenPayload.phone },
-        "-__v -password -createdAt -updatedAt -refreshToken "
+        "-__v -password -createdAt -updatedAt -refreshToken ",
       );
     }
     console.log("user-----me", user);
@@ -30,7 +30,7 @@ export async function GET(req) {
         data: null,
         message: "Unauthorized, please login to access this resource.",
       },
-      { status: 401 }
+      { status: 401 },
     );
   }
 }

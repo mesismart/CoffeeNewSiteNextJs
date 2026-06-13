@@ -3,7 +3,8 @@ import React, { useState } from "react";
 
 import styles from "./register.module.css";
 import Link from "next/link";
-import { ShowSwl } from "@/utils/Helper";
+import { ShowSwl } from "@/app/lib/utils/Helper";
+import { signUp } from "@/app/lib/services/login.service";
 
 function Register({ GoToLoginForm }) {
   const [isLoginPass, setIsLoginPass] = useState(false);
@@ -45,22 +46,14 @@ function Register({ GoToLoginForm }) {
       return;
     }
 
-    const user = { name, phone, email, password };
-    const res = await fetch("/api/auth/signup", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(user),
-    });
-
-    console.log("res: ", res);
+    const userData = { name, phone, email, password };
+    const res = await signUp(userData);
 
     if (res.status === 201) {
-      console.log("User created successfully");
-      ShowSwl("کاربر با موفقیت ایجاد شد", "success", "باشه");
-    } else if (res.status === 422) {
-      ShowSwl("کاربر قبلا ثبت نام کرده است", "error", "باشه");
+      ShowSwl(res.message, "success", "باشه");
+      GoToLoginForm();
+    } else {
+      ShowSwl(res.message, "error", "باشه");
     }
   };
 

@@ -14,4 +14,16 @@ const formatPrice = (price) => {
   return Number(price).toLocaleString("fa-IR");
 };
 
+const authUser = async () => {
+  const response = await fetch(`${process.env.SITE_URL}/api/auth/me`);
+  console.log("authUser");
+  if (response.status == 200) {
+    const data = await response.json();
+    console.log("data-me: ", data);
+    return data.user;
+  } else {
+    return null;
+  }
+};
+
 export { ShowSwl, toPersianDigits, formatPrice };

@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import RateStar from "./RateStar";
 import moment from "moment-jalaali";
-import { toPersianDigits } from "@/utils/Helper";
+import { toPersianDigits } from "@/app/lib/utils/Helper";
 
 function Review({ bodytxt, date, email, score, username }) {
   console.log("bodytxt: ", bodytxt);

@@ -1,5 +1,5 @@
-import WishlistModel from "../../../../models/Wishlist.js";
-import connectToDB from "../../../../configs/db.js";
+import WishlistModel from "../../lib/models/Wishlist.js";
+import connectToDB from "../../lib/configs/db.js";
 
 export async function POST(req) {
   //Code to handle POST request for wishlist
@@ -13,7 +13,7 @@ export async function POST(req) {
     if (!user || !product) {
       return Response.json(
         { message: "User and product are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -22,7 +22,7 @@ export async function POST(req) {
     if (userExists) {
       return Response.json(
         { message: "This product is already in your wishlist" },
-        { status: 409 }
+        { status: 409 },
       );
     }
 
@@ -30,12 +30,12 @@ export async function POST(req) {
 
     return Response.json(
       { message: "Wishlist item added successfully" },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     return Response.json(
       { message: "Error adding to wishlist", error },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -59,18 +59,18 @@ export async function DELETE(req) {
     if (!wishlistItem) {
       return Response.json(
         { message: "Wishlist item not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
     return Response.json(
       { message: "Wishlist item removed successfully" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     return Response.json(
       { message: "Error removing from wishlist", error },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

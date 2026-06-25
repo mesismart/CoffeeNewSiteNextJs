@@ -1,4 +1,5 @@
 import PanelUserLayout from "@/components/layouts/PanelUserLayout";
+import DropDown from "@/components/ui/DropDown";
 
 export default function SendTicket() {
   return (
@@ -13,7 +14,7 @@ export default function SendTicket() {
 
       <div className=" gap-4 mt-4 w-full">
         <div className="flex px-4  mt-4 justify-between gap-4">
-          <div className="flex flex-col w-full bg-grey-100 gap-1 mt-4">
+          {/* <div className="flex flex-col w-full bg-grey-100 gap-1 mt-4">
             <label className="text-sm font-bold px-4 ">نام کاربری</label>
             <div className="border-red-900 border-2 rounded-md px-4 py-2 ">
               <select
@@ -28,7 +29,18 @@ export default function SendTicket() {
                 <option value="billing">حسابداری</option>
               </select>
             </div>
-          </div>
+          </div> */}
+
+          <DropDown
+            label="دپارتمان خود را انتخاب کنید"
+            options={[
+              { value: "support", label: "پشتیبانی" },
+              { value: "sales", label: "فروش" },
+              { value: "billing", label: "حسابداری" },
+            ]}
+            selectedOption=""
+            isRequired={true}
+          />
 
           <div className="flex flex-col w-full bg-grey-100 gap-1 mt-4">
             <label className="text-sm font-bold px-4 ">

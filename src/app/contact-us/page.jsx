@@ -1,4 +1,4 @@
-import InputField from "@/components/common/InputField";
+import InputField from "@/components/ui/InputField";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import Banner from "@/components/templates/index/banner/Banner";

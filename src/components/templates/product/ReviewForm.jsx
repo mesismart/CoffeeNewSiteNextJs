@@ -1,5 +1,5 @@
 "use client";
-import InputField from "@/components/common/InputField";
+import InputField from "@/components/ui/InputField";
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { ShowSwl } from "@/app/lib/utils/Helper";

@@ -1,5 +1,6 @@
 import PanelUserLayout from "@/components/layouts/PanelUserLayout";
 import DropDown from "@/components/ui/DropDown";
+import InputField from "@/components/ui/InputField";
 
 export default function SendTicket() {
   return (
@@ -14,23 +15,6 @@ export default function SendTicket() {
 
       <div className=" gap-4 mt-4 w-full">
         <div className="flex px-4  mt-4 justify-between gap-4">
-          {/* <div className="flex flex-col w-full bg-grey-100 gap-1 mt-4">
-            <label className="text-sm font-bold px-4 ">نام کاربری</label>
-            <div className="border-red-900 border-2 rounded-md px-4 py-2 ">
-              <select
-                defaultValue=""
-                className="outline-none border-0 bg-transparent w-full"
-              >
-                <option value="" disabled>
-                  دپارتمان خود را انتخاب کنید
-                </option>
-                <option value="support">پشتیبانی</option>
-                <option value="sales">فروش</option>
-                <option value="billing">حسابداری</option>
-              </select>
-            </div>
-          </div> */}
-
           <DropDown
             label="دپارتمان خود را انتخاب کنید"
             options={[
@@ -42,24 +26,38 @@ export default function SendTicket() {
             isRequired={true}
           />
 
-          <div className="flex flex-col w-full bg-grey-100 gap-1 mt-4">
-            <label className="text-sm font-bold px-4 ">
-              دپارتمان خود را انتخاب کنید
-            </label>
-            <div className="border-red-900 border-2 rounded-md px-4 py-2 ">
-              <select
-                defaultValue=""
-                className="outline-none border-0 bg-transparent w-full"
-              >
-                <option value="" disabled>
-                  دپارتمان خود را انتخاب کنید
-                </option>
-                <option value="support">پشتیبانی</option>
-                <option value="sales">فروش</option>
-                <option value="billing">حسابداری</option>
-              </select>
-            </div>
-          </div>
+          <DropDown
+            label="نوع تیکت خود را انتخاب کنید"
+            options={[
+              { value: "question", label: "سوال" },
+              { value: "problem", label: "مشکل" },
+              { value: "feature", label: "ویژگی" },
+            ]}
+            selectedOption=""
+          />
+        </div>
+      </div>
+
+      <div className=" gap-4 mt-4 w-full">
+        <div className="flex px-4  mt-4 justify-between  gap-4">
+          <InputField
+            classNameMain="mt-3 w-full"
+            classNameInput="w-full h-11 border-2 rounded-md px-4 py-2 border-red-900 focus:border-red-900"
+            type="text"
+            txtTitle={"عنوان تیکت خود را وارد کنید"}
+            isRequired={true}
+            value={""}
+          ></InputField>
+
+          <DropDown
+            label="اولویت تیکت خود را انتخاب کنید"
+            options={[
+              { value: "low", label: "پایین" },
+              { value: "medium", label: "متوسط" },
+              { value: "high", label: "بالا" },
+            ]}
+            selectedOption=""
+          />
         </div>
       </div>
     </PanelUserLayout>
